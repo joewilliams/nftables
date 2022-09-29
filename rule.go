@@ -130,7 +130,7 @@ func (cc *Conn) newRule(r *Rule, op ruleOperation) *Rule {
 	}
 
 	data = append(data, cc.marshalAttr([]netlink.Attribute{
-		{Type: unix.NLA_F_NESTED | unix.NFTA_RULE_EXPRESSIONS, Data: cc.marshalAttr(exprAttrs)},
+		{Type: unix.NFTA_MATCH_NAME | unix.NFTA_RULE_EXPRESSIONS, Data: cc.marshalAttr(exprAttrs)},
 	})...)
 
 	msgData := []byte{}
